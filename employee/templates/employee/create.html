@@ -1,0 +1,27 @@
+{% extends 'employee/base.html' %}
+
+{% block title %} Add Employee {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 offset-4">
+            <h2 class="text-center">Add Employee</h2>
+            <form class="form-control p-3" action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Create" class="btn btn-success">
+                <a href="{% url 'list' %}" class="btn btn-danger">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("#first_name").autocomplete({
+            source: "{% url 'create' %}",
+        });
+    });
+</script>
+{% endblock %}

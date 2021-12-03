@@ -1,0 +1,20 @@
+{% extends 'employee/base.html' %}
+
+{% block title %} Delete Employee {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 offset-4">
+            <h2 class="text-center">Delete Employee</h2>
+            <form class="form-control p-3" action="" method="post">
+                <p>Are you sure delete this post?</p>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Yes, I'm sure" class="btn btn-success">
+                <a href="{% url 'list' %}" class="btn btn-danger">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
